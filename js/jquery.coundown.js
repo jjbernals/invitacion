@@ -11,12 +11,12 @@
 			offset: null,
 			day: 'Hari',
 			days: 'Hari',
-			hour: 'Jam',
-			hours: 'Jam',
-			minute: 'Menit',
-			minutes: 'Menit',
-			second: 'Detik',
-			seconds: 'Detik'
+			hour: 'Horas',
+			hours: 'Horas',
+			minute: 'Minutos',
+			minutes: 'Minutos',
+			second: 'Segundos',
+			seconds: 'Segundos'
 		}, options);
 
 		// Throw error if date is not set
