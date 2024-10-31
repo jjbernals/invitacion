@@ -105,17 +105,17 @@ html {
 }
 
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li.is-active a {
-    border-bottom: 2px solid #996E6D;
+    border-bottom: 2px solid rgba(90, 98, 74, 1);
 }
 
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a {
-    color: #996E6D;
+    color: rgba(19, 36, 17, 255);
 }
 
 .hero .hero-foot .hero-foot--wrapper .hero-menu-desktop ul li a:hover {
-    color: #996E6D;
+    color: rgba(19, 36, 17, 255);
     transition: all .2s ease-in-out;
-    border-bottom: 2px solid #c28285;
+    border-bottom: 2px solid rgba(19, 36, 17, 255);
 }
 
 
@@ -503,12 +503,12 @@ body.preloader-site {
 }
 
 .btn-cta {
-    background-color: #996E6D;
+    background-color: #4E6B3B  ;
     width: 210px;
     height: 65px;
     color: white;
     font-size: 1.2rem;
-    border: 2px solid #996E6D;
+    border: 2px solid #E6FFED  ;
     border-radius: 10px;
     align-items: center;
     margin: 1rem;
