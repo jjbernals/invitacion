@@ -139,7 +139,7 @@ html {
 }
 
 .main-content .section-darker {
-    background-color: #EDD2D1;
+    background-color: #daede4;
     padding: 80px 40px;
 }
 
@@ -474,16 +474,16 @@ body.preloader-site {
 
 
 .btn-whatsapp {
-    background-color: #6cc751;
+    background-color: #4E6B3B;
     width: 210px;
     height: 65px;
     color: white;
     font-size: 1.2rem;
     border-radius: 10px;
-    border-left: 1px solid #6cc751;
-    border-right: 1px solid #6cc751;
-    border-top: 1px solid #6cc751;
-    border-bottom: 1px solid #6cc751;
+    border-left: 1px solid #4E6B3B;
+    border-right: 1px solid #4E6B3B;
+    border-top: 1px solid #4E6B3B;
+    border-bottom: 1px solid #4E6B3B;
     align-items: center;
     margin: 1rem;
 
@@ -492,10 +492,10 @@ body.preloader-site {
 
 .btn-cta:hover {
     color: white;
-    background-color: #bf7877;
+    background-color: #4B8B3B;
     font-size: 1.2rem;
     border-radius: 10px;
-    border: 2px solid #bf7877;
+    border: 2px solid #4B8B3B;
     width: 210px;
     height: 65px;
     align-items: center;
@@ -508,7 +508,7 @@ body.preloader-site {
     height: 65px;
     color: white;
     font-size: 1.2rem;
-    border: 2px solid #E6FFED  ;
+    border: 2px solid #4E6B3B  ;
     border-radius: 10px;
     align-items: center;
     margin: 1rem;
@@ -584,7 +584,7 @@ body.preloader-site {
 
 
 .foto1 {
-    background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/sherly-daeng-kang-emil.jpg");
+    background-image: linear-gradient(rgba(2, 95, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/img1.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -593,7 +593,7 @@ body.preloader-site {
 
 
 .foto2 {
-    background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/sherly-daeng-cashbac.jpg");
+    background-image: linear-gradient(rgba(2, 95, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/img2.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -601,7 +601,7 @@ body.preloader-site {
 }
 
 .foto3 {
-    background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/sherly-daeng-selfie.jpg");
+    background-image: linear-gradient(rgba(2, 95, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/img3.jpeg");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -609,7 +609,7 @@ body.preloader-site {
 }
 
 .foto4 {
-    background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/sherly-daeng-lamaran.jpg");
+    background-image: linear-gradient(rgba(2, 95, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/img5.jpeg");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -617,7 +617,7 @@ body.preloader-site {
 }
 
 .foto5 {
-    background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/sherly-daeng-red-car.jpg");
+    background-image: linear-gradient(rgba(2, 95, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/img6.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -626,7 +626,7 @@ body.preloader-site {
 
 
 .foto6 {
-    background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/sherly-daeng-engagement-ami.jpg");
+    background-image: linear-gradient(rgba(2, 95, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/img4.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -661,7 +661,7 @@ body.preloader-site {
 }
 
 .instagram {
-    color: #996E6D;
+    color: #132411;
     font-size: 1.25rem;
     font-weight: 900;
     margin-top: 0.5rem;
