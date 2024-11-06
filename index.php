@@ -26,6 +26,7 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/jquery.coundown.js"></script>
     <link rel="icon" type="image/png" href="image/favicon.png"/>
+    <script src="js/menikah.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23064379-20"></script>
     <!-- Begin Script for Countdown -->
@@ -45,6 +46,29 @@
     <!-- Github Button -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
+
+<!-- Modal de Bulma -->
+<div class="modal" id="confirmModal">
+    <!-- Fondo oscuro que cubre toda la página -->
+    <div class="modal-background" onclick="closeModal()"></div>
+
+    <div class="modal-card">
+        <header class="modal-card-head">
+            <p class="modal-card-title">Confirmación de asistencia</p>
+            <button class="delete" aria-label="close" onclick="closeModal()"></button>
+        </header>
+        <section class="modal-card-body">
+            <p id="modalMessage">¿Estás seguro de que quieres confirmar esta acción?</p>
+            <p id="selectionMessage" style="display:none;">Selecciona la cantidad de personas que van a asistir (incluyéndote).</p> <!-- Mensaje adicional -->
+            <div id="dynamicOptions"></div> <!-- Contenedor dinámico de opciones -->
+        </section>
+        <footer class="modal-card-foot">
+            <button class="button confirm-button">Confirmar</button>
+            <button class="button" onclick="closeModal()">Cancelar</button>
+        </footer>
+    </div>
+</div>
+
 
 <body>
 <audio id="background-audio" loop autoplay muted>
@@ -107,7 +131,7 @@
 
                     <div class="navbar-item">
                         <a class="navbar-item" href="#tentang-sherly-daeng">
-                            Acerca de Maria Kamila
+                            Recuerdos de Maria Kamila
                         </a>
                     </div>
                     <div class="navbar-item">
@@ -189,7 +213,7 @@
                                 <a href="#lokasi">Ubicación</a>
                             </li>
                             <li>
-                                <a href="#tentang-sherly-daeng">Acerca de Maria Kamila</a>
+                                <a href="#tentang-sherly-daeng">Recuerdos de Maria Kamila</a>
                             </li>
 
                             <li>
@@ -270,7 +294,7 @@
                     <h1 class="waktu is-larger has-text-centered">
                         Inicio
                         <br>
-                        <strong>07:00 - 07:30 PM</strong>
+                        <strong>07:30 PM</strong>
                     </h1>
 
 
@@ -326,7 +350,7 @@
             <div class="columns is-multiline">
                 <div class="column has-text-centered is-12 prolog">
                     <h1 class="title has-text-centered section-title" data-aos="fade-up" data-aos-easing="linear">
-                        Acerca de Maria Kamila</h1>
+                        Recuerdos de Maria Kamila</h1>
 
 
                     <!-- IMAGES -->
@@ -442,11 +466,14 @@
                     </style>
 
 
-                    <a href=""
-                       class="button btn-whatsapp" target="_blank" data-aos="zoom-in">
+                    <!-- Botón para abrir el modal -->
+                    <a href="#" class="button btn-whatsapp" target="_blank" data-aos="zoom-in" onclick="openModal()">
                         <i class="fab fa-whatsapp"></i>
                         &nbsp;&nbsp;Confirmar
                     </a>
+
+
+
 
                     <div class="space40px"></div>
 
@@ -484,7 +511,6 @@
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/menikah.js"></script>
 <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 <script>

@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css?family=Lato|Raleway|Rouge+Script");
 
+/* Personaliza el fondo oscuro para cubrir toda la pantalla */
+.modal.is-active .modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad a tu gusto */
+}
+/* Personaliza el color del botón de confirmar */
+.confirm-button {
+    background-color: #4E6B3B;
+    color: #fff;
+    border: none;
+}
+
+.confirm-button:hover {
+    background-color: #3f572d; /* Color un poco más oscuro al pasar el mouse */
+}
+
 .has-vertically-aligned-content {
     display: flex;
     flex-direction: column;
