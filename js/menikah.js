@@ -202,7 +202,7 @@ function updateModal() {
     const dynamicOptions = document.getElementById('dynamicOptions');
     dynamicOptions.innerHTML = '';
 
-    if (cupos > 1) {
+    if (cupos > 0) {
       let optionsHtml = '';
       for (let i = cupos; i >= 1; i--) {
         optionsHtml += `<label class="radio">
