@@ -216,7 +216,7 @@ async function confirmarAsistencia() {
   };
 
   try {
-    const response = await fetch('https://invitaciones-jboy.onrender.com', {
+    const response = await fetch('https://invitaciones-jboy.onrender.com/invitado', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
