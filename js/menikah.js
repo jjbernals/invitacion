@@ -1,4 +1,30 @@
 // Get that hamburger menu cookin' //
+document.addEventListener('DOMContentLoaded', async () => {
+  await obtenerDatosIniciales();
+});
+
+async function obtenerDatosIniciales() {
+  try {
+    // Realiza la llamada a la API
+    const response = await fetch('https://invitaciones-jboy.onrender.com/invitado');
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Datos recibidos:', data);
+
+      // Aquí puedes usar los datos recibidos para actualizar el DOM
+      // Por ejemplo, mostrar los cupos disponibles, nombre, etc.
+      if (data.nombre) {
+        const modalMessage = document.getElementById('modalMessage');
+        modalMessage.textContent = `${data.nombre}, tienes ${data.cupos} cupo(s) para el evento.`;
+      }
+    } else {
+      console.error('Error en la respuesta del servidor:', response.statusText);
+    }
+  } catch (error) {
+    console.error('Error al obtener datos:', error);
+  }
+}
 
 document.addEventListener("DOMContentLoaded", function() {
   // Get all "navbar-burger" elements
@@ -202,18 +228,27 @@ function closeModal() {
 
 // Función para enviar los datos a la API
 async function confirmarAsistencia() {
-  const param = getUrlParam('invitacion');
-  if (!param || !listaCupos[param]) return;
+  const nombre = getUrlParam('invitacion');
+  const seleccion = document.querySelector('input[name="cupos"]:checked');
 
-  const nombre = param.replace(/_/g, ' ');
-  const cuposSeleccionados = document.querySelector('input[name="cupos"]:checked');
-  const invitados = cuposSeleccionados ? parseInt(cuposSeleccionados.value) : listaCupos[param];
+  if (!seleccion) {
+    alert('Por favor, selecciona cuántas personas asistirán.');
+    return;
+  }
 
-  // Preparar los datos para el envío
   const payload = {
     nombre: nombre,
-    invitados: invitados
+    invitados: parseInt(seleccion.value)
   };
+
+  const confirmButton = document.querySelector('.confirm-button');
+  const buttonText = document.querySelector('.button-text');
+  const loader = document.querySelector('.loader');
+
+  // Cambiar el texto y mostrar el spinner
+  buttonText.textContent = 'Confirmando...';
+  loader.style.display = 'inline-block';
+  confirmButton.disabled = true;
 
   try {
     const response = await fetch('https://invitaciones-jboy.onrender.com/invitado', {
@@ -225,14 +260,19 @@ async function confirmarAsistencia() {
     });
 
     if (response.ok) {
-      alert('Confirmación exitosa. ¡Gracias por tu respuesta!');
+      alert('¡Asistencia confirmada!');
       closeModal();
     } else {
-      alert('Error al enviar la confirmación. Por favor, inténtalo de nuevo.');
+      alert('Hubo un error al confirmar la asistencia.');
     }
   } catch (error) {
-    console.error('Error al consumir la API:', error);
-    alert('Hubo un problema al enviar la confirmación.');
+    console.error('Error en la API:', error);
+    alert('No se pudo conectar con el servidor.');
+  } finally {
+    // Restaurar el estado del botón
+    buttonText.textContent = 'Confirmar';
+    loader.style.display = 'none';
+    confirmButton.disabled = false;
   }
 }
 
