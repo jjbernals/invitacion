@@ -156,6 +156,7 @@ const listaCupos = {
 };
 
 // Función para extraer el parámetro de la URL
+// Función para obtener el parámetro de la URL
 function getUrlParam(name) {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(name);
@@ -165,27 +166,24 @@ function getUrlParam(name) {
 function updateModal() {
   const param = getUrlParam('invitacion');
   if (param && listaCupos[param]) {
-    const nombre = param.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase()); // Convierte a formato de nombre sin guiones bajos
+    const nombre = param.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase()); // Formatear el nombre
     const cupos = listaCupos[param];
 
-    // Actualiza el mensaje del modal sin cambiar la estética
+    // Actualizar el mensaje del modal
     document.getElementById('modalMessage').textContent = `${nombre}, tienes ${cupos} cupo(s) para el evento.`;
 
-    // Si el número de cupos es mayor o igual a 2, mostrar las opciones
+    // Mostrar las opciones dinámicas si hay más de un cupo
     const dynamicOptions = document.getElementById('dynamicOptions');
-    dynamicOptions.innerHTML = ''; // Limpiar cualquier opción anterior
+    dynamicOptions.innerHTML = '';
 
     if (cupos > 1) {
       let optionsHtml = '';
       for (let i = cupos; i >= 1; i--) {
         optionsHtml += `<label class="radio">
-                    <input type="radio" name="cupos" value="${i}">
-                     ${i}
-                </label><br>`;
+                          <input type="radio" name="cupos" value="${i}"> ${i}
+                        </label><br>`;
       }
       dynamicOptions.innerHTML = optionsHtml;
-
-      // Mostrar el mensaje adicional
       document.getElementById('selectionMessage').style.display = 'block';
     }
   }
@@ -193,11 +191,50 @@ function updateModal() {
 
 // Función para abrir el modal
 function openModal() {
-  updateModal(); // Actualiza el contenido del modal
-  document.getElementById('confirmModal').classList.add('is-active'); // Muestra el modal
+  updateModal();
+  document.getElementById('confirmModal').classList.add('is-active');
 }
 
 // Función para cerrar el modal
 function closeModal() {
-  document.getElementById('confirmModal').classList.remove('is-active'); // Cierra el modal
+  document.getElementById('confirmModal').classList.remove('is-active');
 }
+
+// Función para enviar los datos a la API
+async function confirmarAsistencia() {
+  const param = getUrlParam('invitacion');
+  if (!param || !listaCupos[param]) return;
+
+  const nombre = param.replace(/_/g, ' ');
+  const cuposSeleccionados = document.querySelector('input[name="cupos"]:checked');
+  const invitados = cuposSeleccionados ? parseInt(cuposSeleccionados.value) : listaCupos[param];
+
+  // Preparar los datos para el envío
+  const payload = {
+    nombre: nombre,
+    invitados: invitados
+  };
+
+  try {
+    const response = await fetch('https://invitaciones-jboy.onrender.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    if (response.ok) {
+      alert('Confirmación exitosa. ¡Gracias por tu respuesta!');
+      closeModal();
+    } else {
+      alert('Error al enviar la confirmación. Por favor, inténtalo de nuevo.');
+    }
+  } catch (error) {
+    console.error('Error al consumir la API:', error);
+    alert('Hubo un problema al enviar la confirmación.');
+  }
+}
+
+// Asignar el evento al botón de confirmación
+document.querySelector('.confirm-button').addEventListener('click', confirmarAsistencia);
