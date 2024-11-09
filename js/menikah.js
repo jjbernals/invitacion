@@ -14,16 +14,17 @@ async function obtenerDatosIniciales() {
     const response = await fetch('https://invitaciones-jboy.onrender.com/invitado/' + param);
 
     if (response.ok) {
-      const data = await response.json();
-      console.log('Datos recibidos:', data);
+      // Leer directamente el cuerpo de la respuesta como texto
+      const data = await response.text();
+      console.log('Respuesta recibida:', data);
 
-      // Verificamos si la consulta devuelve true o false
-      if (data === false) {
-        // Si la respuesta es true, deshabilitamos el botón
+      // Verificamos si la respuesta es 'true' o 'false'
+      if (data === 'true') {
+        // Si la respuesta es 'true', deshabilitamos el botón
         confirmButton.disabled = true;
         buttonText.textContent = 'No disponible'; // Cambiar texto del botón
-      } else if (data === false) {
-        // Si la respuesta es false, habilitamos el botón
+      } else if (data === 'false') {
+        // Si la respuesta es 'false', habilitamos el botón
         confirmButton.disabled = false;
         buttonText.textContent = 'Confirmar'; // Cambiar texto del botón a Confirmar
       }
