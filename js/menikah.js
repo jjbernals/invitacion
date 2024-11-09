@@ -4,9 +4,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function obtenerDatosIniciales() {
+  const param = getUrlParam('invitacion');
   try {
     // Realiza la llamada a la API
-    const response = await fetch('https://invitaciones-jboy.onrender.com/invitado');
+    const response = await fetch('https://invitaciones-jboy.onrender.com/invitado/'+param);
 
     if (response.ok) {
       const data = await response.json();
