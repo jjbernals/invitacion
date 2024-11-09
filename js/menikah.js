@@ -17,27 +17,15 @@ async function obtenerDatosIniciales() {
       const data = await response.json();
       console.log('Datos recibidos:', data);
 
-      // Si la respuesta contiene un nombre y cupos, habilitamos el botón
-      if (data.nombre && data.cupos) {
-        const modalMessage = document.getElementById('modalMessage');
-        modalMessage.textContent = `${data.nombre}, tienes ${data.cupos} cupo(s) para el evento.`;
-
-        // Aquí puedes mostrar opciones dinámicas o lo que desees
-        // Si tienes cupos disponibles, muestra el mensaje para seleccionar cuántos van a asistir
-        if (data.cupos > 0) {
-          document.getElementById('selectionMessage').style.display = 'block';
-          // Agregar opciones dinámicas aquí si es necesario
-        }
-        // Habilitar el botón de confirmar
-        confirmButton.disabled = false;
-        buttonText.textContent = 'Confirmar'; // Restaurar el texto del botón
-      } else {
-        // Si no hay cupos o nombre, deshabilitar el botón de confirmar
-        const modalMessage = document.getElementById('modalMessage');
-        modalMessage.textContent = 'No tienes cupos disponibles para este evento.';
-
+      // Verificamos si la consulta devuelve true o false
+      if (data === true) {
+        // Si la respuesta es true, deshabilitamos el botón
         confirmButton.disabled = true;
-        buttonText.textContent = 'No disponible'; // Cambiar texto para reflejar que no es posible confirmar
+        buttonText.textContent = 'No disponible'; // Cambiar texto del botón
+      } else if (data === false) {
+        // Si la respuesta es false, habilitamos el botón
+        confirmButton.disabled = false;
+        buttonText.textContent = 'Confirmar'; // Cambiar texto del botón a Confirmar
       }
     } else {
       console.error('Error en la respuesta del servidor:', response.statusText);
