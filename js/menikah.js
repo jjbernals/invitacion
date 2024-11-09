@@ -18,8 +18,7 @@ async function obtenerDatosIniciales() {
       console.log('Datos recibidos:', data);
 
       // Verificamos si la consulta devuelve true o false
-      if (response) {
-        console.log(" a ya")
+      if (data === false) {
         // Si la respuesta es true, deshabilitamos el botón
         confirmButton.disabled = true;
         buttonText.textContent = 'No disponible'; // Cambiar texto del botón
