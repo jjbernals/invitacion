@@ -190,7 +190,8 @@ const listaCupos = {
   "Agustin_Sanabria_Y_Sra": 2,
   "Harol_Liberato_Y_Sra": 2,
   "Jose_Pedraza_Y_Sra": 2,
-  "Johana_Molina": 1
+  "Johana_Molina": 1,
+  "Valeria_Urueña_Ospina" : 1
 };
 
 // Función para extraer el parámetro de la URL
